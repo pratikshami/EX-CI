@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        
+         <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> 
+        
+        <title>Employee Details</title>
+    </head>
+    
+    <body>
+    
+
+        <div class="container" ng-controller="AppCtrl">
+
+            <h1>Employee List </h1>
+            
+            <table class="table">  <!--class is used to access the class of bootstrap -->
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Function</th>
+                        
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td>
+                            <input class="form-contol" ng-model="emp.name"> <!--class from bootstrap for formatting -->
+                        </td>
+                        
+                        <td>
+                            <input class="form-contol" ng-model="emp.department">
+                        </td>
+                        
+                        <td>
+                            <input class="form-contol" ng-model="emp.salary">
+                        </td>
+                        
+                        <td>
+                            <button class="button" ng-click="add()">Add </button>
+                        </td>
+                        
+                        
+                        <td>
+                            <button class="button" ng-click="update()">Update</button>
+                        </td>
+                    </tr>
+                    
+                    <tr ng-repeat="emp in emplist"> 
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.department}}</td>
+                        <td>{{emp.salary}}</td>
+                        
+                         <td><button class="button" ng-click="remove(emp._id)">Remove</button></td>
+                        
+                        <td><button class="button" ng-click="edit(emp._id)">Edit</button></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+     
+        
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        
+        <script src = "controllers/controller.js"></script>
+    </body>
+</html>
